@@ -4,32 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-
     body {
         margin: 0;
         height: 100vh;
         display: flex;
-        align-items: center; /* Qendro vertikalisht */
-        justify-content: flex-start; /* Rreshto majtas */
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
         background-color: black;
         overflow: hidden;
     }
+
     .container {
         font-size: 10px;
-        width: 60em; /* Gjeresi e rritur */
-        height: 60em; /* Lartesi e rritur */
+        width: 60em;
+        height: 60em;
         position: relative;
     }
+
     .sun {
         position: absolute;
-        top: 22.5em; /* Pozicion i rregulluar */
-        left: 22.5em; /* Pozicion i rregulluar */
-        width: 15em; /* Madhesi e rritur */
-        height: 15em; /* Madhesi e rritur */
+        top: 22.5em;
+        left: 22.5em;
+        width: 15em;
+        height: 15em;
         background-color: yellow;
         border-radius: 50%;
         box-shadow: 0 0 3em white;
     }
+
     .earth, .moon {
         position: absolute;
         border-style: solid;
@@ -37,40 +40,46 @@
         border-width: 0.1em 0.1em 0 0;
         border-radius: 50%;
     }
+
     .earth {
-        top: 7.5em; /* Pozicion i rregulluar */
-        left: 7.5em; /* Pozicion i rregulluar */
-        width: 45em; /* Madhesi e rritur */
-        height: 45em; /* Madhesi e rritur */
+        top: 7.5em;
+        left: 7.5em;
+        width: 45em;
+        height: 45em;
         animation: orbit 36.5s linear infinite;
     }
+
     .moon {
         top: 0;
         right: 0;
-        width: 12em; /* Madhesi e rritur */
-        height: 12em; /* Madhesi e rritur */
+        width: 12em;
+        height: 12em;
         animation: orbit 2.7s linear infinite;
     }
+
     .earth::before,
     .moon::before {
         content: '';
         position: absolute;
         border-radius: 50%;
     }
+
     .earth::before {
-        top: 6.5em; /* Pozicion i rregulluar */
-        right: 6.5em; /* Pozicion i rregulluar */
-        width: 4.5em; /* Madhesi e rritur */
-        height: 4.5em; /* Madhesi e rritur */
+        top: 6.5em;
+        right: 6.5em;
+        width: 4.5em;
+        height: 4.5em;
         background-color: aqua;
     }
+
     .moon::before {
-        top: 1.8em; /* Pozicion i rregulluar */
-        right: 0.3em; /* Pozicion i rregulluar */
-        width: 1.8em; /* Madhesi e rritur */
-        height: 1.8em; /* Madhesi e rritur */
+        top: 1.8em;
+        right: 0.3em;
+        width: 1.8em;
+        height: 1.8em;
         background-color: silver;
     }
+
     @keyframes orbit {
         to {
             transform: rotate(360deg);
@@ -83,10 +92,16 @@
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(46, 43, 43, 0.1);
         text-align: center;
-        width: 50%; /* Gjeresi e rregulluar */
-        margin-right: 20px; 
-        font-size: 16px; /* Madhesi e rregulluar */
+        width: 80%;
+        max-width: 500px;
         color: #e4e4e4;
+        margin: 1em auto;
+    }
+
+    .choose img {
+        width: 100px; /* Adjust as needed */
+        height: auto;
+        margin-bottom: 1em;
     }
 
     .choose p {
@@ -95,10 +110,10 @@
     }
 
     .choose button {
-        padding: 15px 30px; /* Padding i rregulluar */
+        padding: 15px 30px;
         background-color: #2e4357;
         color: #fff;
-        border:#272525;
+        border: #272525;
         border-radius: 10px;
         cursor: pointer;
         font-size: 1em;
@@ -107,6 +122,96 @@
 
     .choose button:hover {
         background-color: #64aae7;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            width: 40em;
+            height: 40em;
+        }
+
+        .sun {
+            top: 15em;
+            left: 15em;
+            width: 10em;
+            height: 10em;
+        }
+
+        .earth {
+            top: 5em;
+            left: 5em;
+            width: 30em;
+            height: 30em;
+        }
+
+        .earth::before {
+            top: 4em;
+            right: 4em;
+            width: 3em;
+            height: 3em;
+        }
+
+        .moon {
+            width: 8em;
+            height: 8em;
+        }
+
+        .moon::before {
+            top: 1.2em;
+            right: 0.2em;
+            width: 1.2em;
+            height: 1.2em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            width: 30em;
+            height: 30em;
+        }
+
+        .sun {
+            top: 10em;
+            left: 10em;
+            width: 8em;
+            height: 8em;
+        }
+
+        .earth {
+            top: 4em;
+            left: 4em;
+            width: 20em;
+            height: 20em;
+        }
+
+        .earth::before {
+            top: 3em;
+            right: 3em;
+            width: 2em;
+            height: 2em;
+        }
+
+        .moon {
+            width: 6em;
+            height: 6em;
+        }
+
+        .moon::before {
+            top: 0.8em;
+            right: 0.1em;
+            width: 0.8em;
+            height: 0.8em;
+        }
+
+        .choose {
+            width: 90%;
+            font-size: 14px;
+        }
+
+        .choose img {
+            width: 80px;
+        }
     }
   </style>
   <title>Dyqani i Uljeve</title>
@@ -120,8 +225,9 @@
     </div>
 
     <div class="choose">
+        <img src="C:/Users/SonY/Desktop/DoniiShopping/Logo.png" alt="Logo">
         <h1>Klikoni këtu për t'u drejtuar në dyqan!</h1>
-        <p>Kualitet te lartë për çdo kategori produkti!</p>
+        <p>Kualitet të lartë për çdo kategori produkti!</p>
         <button onclick="Go()">Vizito Faqen Kryesore!</button>
     </div>
 
