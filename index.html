@@ -181,11 +181,11 @@
       try {
         if (isLogin) {
           await signInWithEmailAndPassword(auth, email, password);
-          alert("Login successful!");
+          alert("Hyrja perfundoi me sukses!");
           window.location.href = "intro.html"; // Replace with your desired page
         } else {
           await createUserWithEmailAndPassword(auth, email, password);
-          alert("Signup successful!");
+          alert("Regjistrimi perfundoi me sukses!");
           window.location.href = "intro.html"; // Replace with your desired page
         }
       } catch (error) {
