@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <title>Faqja e Porosisë</title>
+    <style>
+        /* General styles for the body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #1a1a1a; /* Dark background */
+            color: #f0f0f0; /* Light text color */
+        }
+
+        body.light-mode {
+            background-color: #f0f0f0;
+            color: #1a1a1a;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+        }
+
+        header button {
+            padding: 7px 5px;
+            background-color: #5f5a5a; /* Darker gray background for the button */
+            color: white;
+            font-size: 12px;
+        }
+
+        header button:hover {
+            background-color: rgb(8, 8, 8);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li button {
+            color: #fff;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input, .search-bar select {
+            padding: 5px;
+            border: 1px solid #555;
+            border-radius: 3px;
+            background-color: #444;
+            color: #fff;
+        }
+
+        .search-bar button {
+            padding: 5px 10px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #555;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #777;
+        }
+
+        .cart-icon {
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .cart-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .profile-icon {
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .profile-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .products-section {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .products-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product-item {
+            background-color: #2a2a2a; /* Slightly lighter dark background */
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            text-align: center;
+            width: calc(25% - 20px); /* Four items per row with gap */
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-item h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .product-item p {
+            font-size: 1em;
+            color: #bbb; /* Light gray text color */
+        }
+
+        .product-item .btn {
+            padding: 10px 15px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .product-item .btn:hover {
+            background-color: #777;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-content {
+            background: #333;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 500px;
+            color: #fff;
+        }
+
+        .cart-content h2 {
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .cart-item p {
+            margin: 0;
+        }
+
+        .cart-item .item-info {
+            flex: 1;
+        }
+
+        .cart-item .item-price {
+            margin-left: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .toggle button {
+            padding: 10px 20px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .toggle button:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">MyStore</div>
+            <div class="toggle">
+                <button id="theme-toggle">Ndrysho Modalin</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><button onclick="Home()">Kryefaqja</button></li>
+                    <li><button onclick="About()">Rreth Nesh</button></li>
+                    <li><button onclick="Order()">Porosit Tani!</button></li>
+                    <li><button onclick="Contact()">Kontakt</button></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Kërkoni produkte...">
+                <select id="category-select">
+                    <option value="">Të gjitha kategoritë</option>
+                    <option value="elektronikë">Elektronikë</option>
+                    <option value="modë">Modë</option>
+                    <option value="shtëpi">Shtëpi</option>
+                    <option value="bukuri">Kozmetikë</option>
+                    <option value="sport">Sport</option>
+                </select>
+                <button id="search-button">Kërko</button>
+            </div>
+            <div class="cart-icon" id="cart-icon">
+                <img src="https://t4.ftcdn.net/jpg/01/86/94/37/360_F_186943704_QJkLZaGKmymZuZLPLJrHDMUNpAwuHPjY.jpg" alt="Karroca">
+            </div>
+           
+        </div>
+    </header>
+    <main>
+        <section class="products-section" id="products-section">
+            <h2>Shfaqja e Produkteve</h2>
+            <div class="product-grid" id="product-grid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-content" id="cart-content">
+            <h2>Karroca e Blerjes</h2>
+            <div id="cart-items"></div>
+            <p id="delivery-time"></p>
+            <p class="item-price" id="item-price"></p>
+            <p class="total" id="total"></p>
+            <button class="btn" id="close-cart">Mbyll</button>
+            <button class="btn" id="proceed-payment" onclick="window.location.href='https://paypal.me/Donii1bs?country.x=MC&locale.x=en_US';">Paguaj</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 MyStore</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchButton = document.getElementById('search-button');
+            const searchInput = document.getElementById('search-input');
+            const categorySelect = document.getElementById('category-select');
+            const productGrid = document.getElementById('product-grid');
+            const cartIcon = document.getElementById('cart-icon');
+            const cartOverlay = document.getElementById('cart-overlay');
+            const cartItems = document.getElementById('cart-items');
+            const totalPrice = document.getElementById('item-price'); // Corrected ID here
+            const deliveryTime = document.getElementById('delivery-time');
+            const closeCart = document.getElementById('close-cart');
+            const themeToggle = document.getElementById('theme-toggle');
+            const products = [
+    { id: 1, name: 'Smartphone', price: '$299.99', img: 'https://m.media-amazon.com/images/I/61nzbNdA7hL.jpg', category: 'elektronikë', description: 'Modeli më i ri me veçori të avancuara.' },
+    { id: 2, name: 'Këpucë Vrapimi', price: '$79.99', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw_j82oaCBExOOa2nVbKSzU6UubSgTqxBiUA&s', category: 'modë', description: 'Këpucë të rehatshme dhe stilistike për vrapim.' },
+    { id: 3, name: 'Blender', price: '$49.99', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSejBDYNcLkONTMk0a--fmh6UeZqNFBDBYRNA&s', category: 'shtëpi', description: 'Blender me shpejtësi të lartë për smoothie.' },
+    { id: 4, name: 'Përgjigjës buzësh', price: '$19.99', img: 'https://sdcdn.io/mac/au/mac_sku_S4K065_1x1_0.png?width=1440&height=1440', category: 'bukuri', description: 'Përgjigjës buzësh me qëndrueshmëri të gjatë në nuanca të ndryshme.' },
+    { id: 5, name: 'Top Futbolli', price: '$25.99', img: 'https://m.media-amazon.com/images/I/51utCE+BxjL._AC_UF894,1000_QL80_.jpg', category: 'sport', description: 'Top futbolli i qëndrueshëm për kushte të ndryshme moti.' },
+    { id: 6, name: 'Laptop', price: '$899.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2023/11/laptops-2048px-8826.jpg?auto=webp&quality=75&crop=1.91:1&width=1200', category: 'elektronikë', description: 'Laptop me performancë të lartë për të gjitha nevojat tuaja.' },
+    { id: 7, name: 'Xhaketë', price: '$129.99', img: 'https://m.media-amazon.com/images/I/71E7c09iTdL._AC_UY1000_.jpg', category: 'modë', description: 'Xhaketë ngrohtë dhe stilistike për dimër.' },
+    { id: 8, name: 'Pastrues Vakumi', price: '$149.99', img: 'https://m.media-amazon.com/images/I/51rPtxq-FTL.__AC_SX300_SY300_QL70_FMwebp_.jpg', category: 'shtëpi', description: 'Pastrues vakumi i fuqishëm me aksesorë të ndryshëm.' },
+    { id: 9, name: 'Krem Fytyre', price: '$29.99', img: 'https://himalayawellness.in/cdn/shop/files/Natural-Glow-Facecream-50g-Tube-front.jpg?v=1697448517', category: 'bukuri', description: 'Krem hidratues për të gjitha llojet e lëkurës.' },
+    { id: 10, name: 'Raketë Tenisi', price: '$89.99', img: 'https://dw4gwhhv7uqc1.cloudfront.net/catalog%2FSeller_36472%2F65b93f8388b5d.jpg', category: 'sport', description: 'Raketë tenisi e lehtë dhe e qëndrueshme.' },
+
+    { id: 11, name: 'Smartphone', price: '$299.99', img: 'https://m.media-amazon.com/images/I/61nzbNdA7hL.jpg', category: 'elektronikë', description: 'Modeli më i ri me veçori të avancuara.' },
+    { id: 12, name: 'Laptop', price: '$899.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2023/11/laptops-2048px-8826.jpg?auto=webp&quality=75&crop=1.91:1&width=1200', category: 'elektronikë', description: 'Laptop me performancë të lartë për të gjitha nevojat tuaja.' },
+    { id: 13, name: 'Kufje', price: '$99.99', img: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQTQ3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1687660671363', category: 'elektronikë', description: 'Kufje me cilësi të lartë për një eksperiencë audio imersive.' },
+    { id: 14, name: 'Orë inteligjente', price: '$199.99', img: 'https://media.wired.com/photos/6511aab1189c419c40374c92/1:1/w_1358,h_1358,c_limit/Apple-Watch-Ultra-2-Alt-Gear.jpg', category: 'elektronikë', description: 'Qëndroni të lidhur me këtë orë inteligjente stilistike.' },
+    { id: 15, name: 'Tablet', price: '$199.99', img: 'https://image-us.samsung.com/us/tablets/galaxy-tab-s9/products/tab-s9-ultra/gallery-images/graphite/1.jpg?$default-400-jpg$', category: 'elektronikë', description: 'Tablet portativ për argëtim dhe produktivitet.' },
+    { id: 16, name: 'Kamera Digjitale', price: '$399.99', img: 'https://m.media-amazon.com/images/I/71EUBYsDQEL._AC_UF894,1000_QL80_.jpg', category: 'elektronikë', description: 'Kapni kujtimet tuaja me qartësi të jashtëzakonshme.' },
+    { id: 17, name: 'Lajmëtar Pa Tel', price: '$79.99', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAbgRlsOlIQs4hPyRqUP31c38DNFJ4TaCY8w&s', category: 'elektronikë', description: 'Shijoni muzikën pa tel me këtë lajmëtar të fuqishëm.' },
+    { id: 18, name: 'Konsolë Lojrash', price: '$499.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2023/12/choosingtherightps5-2048px-7311-3x2-1.jpg', category: 'elektronikë', description: 'Përfshiuni në lojëra me konsolën më të re.' },
+    { id: 19, name: 'Monitorues i Formës Fizike', price: '$59.99', img: 'https://m.media-amazon.com/images/I/61dV494jBgL._AC_UF1000,1000_QL80_.jpg', category: 'elektronikë', description: 'Monitoroni qëllimet tuaja të formës fizike me këtë monitorues.' },
+    { id: 20, name: 'Hard Drive i Jashtëm', price: '$129.99', img: 'https://i.ebayimg.com/images/g/3lsAAOSwOzVkKn-0/s-l1200.webp', category: 'elektronikë', description: 'Zgjeroni kapacitetin tuaj të ruajtjes me këtë hard drive.' },
+
+    { id: 21, name: 'Miushkë Pa Dritë', price: '$29.99', img: 'https://m.media-amazon.com/images/I/51sm93PGdcL._AC_UF894,1000_QL80_.jpg', category: 'elektronike', description: 'Dizajn ergonomik për përdorim të rehatshëm.' },
+                { id: 22, name: 'Kërthizë Bluetooth', price: '$49.99', img: 'https://target.scene7.com/is/image/Target/GUEST_d76b4de5-9d04-477e-8c31-65f6fa698c91?wid=488&hei=488&fmt=pjpeg', category: 'elektronike', description: 'Kërthizë të vërtetë pa tel me cilësi të qartë të tingullit.' },
+                { id: 23, name: 'Termostat i Mençur', price: '$149.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2022/11/smartthermostats-2048px-2898-3x2-1.jpg?auto=webp&quality=75&crop=3:2&width=1024', category: 'elektronike', description: 'Kontrolloni temperaturën e shtëpisë nga kudo.' },
+                { id: 24, name: 'Kaskë VR', price: '$299.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2020/11/vr-headset-2048px-9008.jpg', category: 'elektronike', description: 'Përvojë immersive të realitetit virtual për lojëra dhe argëtim.' },
+                { id: 25, name: 'Karikues Portativ', price: '$39.99', img: 'https://m.media-amazon.com/images/I/71f3vagRcYL.jpg', category: 'elektronike', description: 'Karikoni pajisjet tuaja në lëvizje me këtë karikues portativ.' },
+                { id: 26, name: 'Tastierë Pa Dritë', price: '$49.99', img: 'https://m.media-amazon.com/images/I/71gR-IwIv-L.jpg', category: 'elektronike', description: 'Përvojë të rehatshme shkrimi pa tela.' },
+                { id: 27, name: 'Kamerë Kompakt', price: '$199.99', img: 'https://cdn.mos.cms.futurecdn.net/fhHCgdxamwSpjeqdz52EwN-1200-80.png', category: 'elektronike', description: 'Kapni kujtimet me lehtësi duke përdorur këtë kamerë kompakt.' },
+                { id: 28, name: 'Shpues i Mençur', price: '$19.99', img: 'https://m.media-amazon.com/images/I/41FJ6hLo09L._AC_UF894,1000_QL80_.jpg', category: 'elektronike', description: 'Kontrolloni pajisjet tuaja nga larg me një shpues të mençur.' },
+                { id: 29, name: 'Ruter Pa Tel', price: '$79.99', img: 'https://i.pcmag.com/imagery/reviews/04XmHNXc3c3GXXLimmqLsw4-1..v1609859128.png', category: 'elektronike', description: 'Lidhje interneti me shpejtësi të lartë për rrjetin tuaj të shtëpisë.' },
+                { id: 30, name: 'Tablet Grafik', price: '$149.99', img: 'https://cdn.vox-cdn.com/thumbor/Oby21OQeLyjmrbIDn0Vx67IxGT4=/0x0:2000x1333/1400x1400/filters:focal(1000x667:1001x668)/cdn.vox-cdn.com/uploads/chorus_asset/file/24534316/PD24_Lifestyle_Photo.jpg', category: 'elektronike', description: 'Krijoni arti digjital me precizion duke përdorur këtë tablet grafik.' },
+
+                { id: 31, name: 'Tastierë Bluetooth', price: '$39.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2023/12/bluetoothkeyboards-2048px-9845.jpg?auto=webp&quality=75&width=1024', category: 'elektronike', description: 'Tastierë pa tel për një shkrim të rehatshëm.' },
+                { id: 32, name: 'Pajisje Flash USB', price: '$19.99', img: 'https://m.media-amazon.com/images/I/51o2VzSkYJL._AC_UF894,1000_QL80_.jpg', category: 'elektronike', description: 'Ruani dhe transferoni skedarët me këtë pajisje kompakte USB.' },
+                { id: 33, name: 'Kërthizë Pa Tel', price: '$69.99', img: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MYMC2?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1601053171000', category: 'elektronike', description: 'Shijoni muzikën pa tela me këto kërthiza pa tel.' },
+                { id: 34, name: 'Bankë Energjie Portative', price: '$49.99', img: 'https://m.media-amazon.com/images/I/51L3GFbMQHS._AC_UF894,1000_QL80_.jpg', category: 'elektronike', description: 'Karikoni pajisjet tuaja në lëvizje me këtë bankë energjie portative.' },
+                { id: 35, name: 'Zgjerues i Rangut Wi-Fi', price: '$59.99', img: 'https://m.media-amazon.com/images/I/51v3yPrNc6L.jpg', category: 'elektronike', description: 'Zgjeroni mbulimin tuaj Wi-Fi për lidhje më të mira.' },
+                { id: 36, name: 'Pad miu me Karikim Pa Tel', price: '$29.99', img: 'https://m.media-amazon.com/images/I/71u6rt2f4xL.jpg', category: 'elektronike', description: 'Karikoni telefonin tuaj ndërsa përdorni miun me këtë pad.' },
+                { id: 37, name: 'Llamba Smart LED', price: '$19.99', img: 'https://m.media-amazon.com/images/I/61DD9OxpX8L._AC_UF894,1000_QL80_.jpg', category: 'elektronike', description: 'Kontrolloni ndriçimin tuaj nga larg me një llambë smart LED.' },
+                { id: 38, name: 'SSD i Jashtëm', price: '$129.99', img: 'https://static.independent.co.uk/2023/03/06/12/external%20hard%20drives%20Indybest%20copy.jpg', category: 'elektronike', description: 'Ruajtje e shpejtë dhe të besueshme të të dhënave tuaja me këtë SSD të jashtëm.' },
+                { id: 39, name: 'Miushkë Ergonomike Pa Dritë', price: '$39.99', img: 'https://m.media-amazon.com/images/I/61BST1dClmL.jpg', category: 'elektronike', description: 'Miushkë e dizajnuar ergonomikisht për përdorim të rehatshëm.' },
+                { id: 40, name: 'Kontrollues Lojrash Bluetooth', price: '$49.99', img: 'https://m.media-amazon.com/images/I/61FJ-33nCrL.jpg', category: 'elektronike', description: 'Përmirësoni përvojën tuaj të lojërave me një kontrollues pa tel.' }
+
+];
+
+
+            const cart = [];
+
+            function displayProducts(filteredProducts) {
+                productGrid.innerHTML = '';
+                filteredProducts.forEach(product => {
+                    const productElement = document.createElement('div');
+                    productElement.className = 'product-item';
+                    productElement.innerHTML = `
+                        <img src="${product.img}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <p>${product.price}</p>
+                        <button class="btn" data-product-id="${product.id}">Add to Cart</button>
+                    `;
+                    productGrid.appendChild(productElement);
+                });
+            }
+
+            function searchProducts() {
+                const searchText = searchInput.value.toLowerCase();
+                const selectedCategory = categorySelect.value;
+                const filteredProducts = products.filter(product => {
+                    return (selectedCategory === '' || product.category === selectedCategory) &&
+                        product.name.toLowerCase().includes(searchText);
+                });
+                displayProducts(filteredProducts);
+            }
+
+            searchButton.addEventListener('click', searchProducts);
+
+            function addToCart(productId) {
+                const product = products.find(product => product.id === productId);
+                if (product) {
+                    cart.push(product);
+                    alert(`${product.name} has been added to the cart.`);
+                }
+            }
+
+            function showCart() {
+                cartItems.innerHTML = '';
+                let total = 0;
+                let estimatedDeliveryTime = '1 hour';
+                cart.forEach(product => {
+                    total += parseFloat(product.price.substring(1)); // Convert price string to float
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <p>${product.name} - ${product.price}</p>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+
+                if (total >= 500) {
+                    estimatedDeliveryTime = '1 week';
+                } else if (total >= 1000) {
+                    estimatedDeliveryTime = '2 weeks';
+                }
+
+                totalPrice.textContent = `Total: $${total.toFixed(2)}`;
+                deliveryTime.textContent = `Estimated Delivery Time: ${estimatedDeliveryTime}`;
+                cartOverlay.style.display = 'flex'; // Ensure cart overlay is displayed
+            }
+
+            function toggleLightDarkMode() {
+                document.body.classList.toggle('light-mode');
+            }
+
+            productGrid.addEventListener('click', event => {
+                if (event.target.classList.contains('btn')) {
+                    const productId = parseInt(event.target.dataset.productId, 10);
+                    addToCart(productId);
+                }
+            });
+
+            cartIcon.addEventListener('click', showCart);
+            closeCart.addEventListener('click', () => {
+                cartOverlay.style.display = 'none';
+            });
+
+            themeToggle.addEventListener('click', toggleLightDarkMode);
+
+            displayProducts(products); // Initial display of all products
+        });
+    </script>
+</body>
+</html>

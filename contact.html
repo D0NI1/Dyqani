@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<title>Dyqani E-Commerce (Faqja e Kontaktit)</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    
+<style>
+    header {
+
+        background-color: rgb(105, 104, 104);
+        color: rgb(255, 255, 255);
+        text-align: center;
+        padding: 5px;
+        }
+
+    header button {
+    padding: 7px 5px;
+    background-color: #5f5a5a; /* Background gri më e errët për butonin */
+    color: white;
+    font-size: 12px;
+
+     }
+  
+     header button :hover {
+        background-color: rgb(8, 8, 8);
+     }
+     
+
+        header h1 {
+            color: black;
+        }
+        
+        body {
+            color: white;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/006/789/451/original/abstract-black-friday-wallpaper-luxury-background-template-color-art-template-business-dark-vector.jpg');
+            background-size:2350px;
+            background-position: center; 
+            background-repeat: no-repeat; 
+            padding: 20px;
+        }
+
+        main {
+    flex: 1;
+    padding: 20px;
+}
+
+.contact-form-section {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e0e0e0; /* Background gri e lehtë për seksionin e formularit */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    color: #333;
+}
+
+.contact-form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-section label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555; /* Gri më e errët për etiketat */
+}
+
+.contact-form-section input[type="text"],
+.contact-form-section input[type="email"],
+.contact-form-section textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: #fff; /* Background i bardhë për inputet */
+}
+
+.contact-form-section input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #555; /* Background gri më e errët për butonin */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form-section input[type="submit"]:hover {
+    background-color: #333; /* Gri më e errët për efektin hover */
+}
+
+        
+        footer {
+
+            background-color: rgb(105, 104, 104);
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 5px;
+        }
+   
+</style>
+<header>
+<h1>Dyqani E-Commerce</h1>
+<nav>
+    <ul style="list-style: none; margin: 0; padding: 0;">
+        <button onclick="Home()">
+        <li style="display: inline; margin-right: 20px;">
+        <a href="#Home" style="text-decoration: none; color: white;">Kryefaqja</a>
+        </button>
+        
+        <button onclick="About()">
+        <li style="display: inline; margin-right: 20px;">
+        <a href="#About" style="text-decoration: none; color: white;">Rreth Nesh</a>
+       </button>
+
+        <button onclick="Order()">
+        <li style="display: inline; margin-right: 20px;">
+            <a href="#Order" style="text-decoration: none; color: white;">Porosit Tani!</a>
+        </button>
+        
+        <button onclick="Contact()">
+        <li style="display: inline; margin-right: 20px;">
+        <a href="#Contact" style="text-decoration: none; color: white;">Kontakt</a>
+        </button> 
+    </ul>
+</nav>
+</header>
+</head>
+
+<body>
+
+
+<h3>Na Kontaktoni</h3>
+<p>Bisedoni me Ne</p>
+<p>Na pëlqen të dëgjojmë nga ju! Pavarësisht nëse keni një pyetje për produktet tona, keni nevojë për ndihmë me një porosi, apo thjesht dëshironi të na jepni ndonjë koment, ne jemi këtu për t'ju ndihmuar.
+</p>
+
+<h3>Informacion Kontaktues</h3>
+<p><b>Email:</b> donartllalloshi69@gmail.com</P>
+<p><b>Telefon:</b> (+383) 44 555 666</p>
+<p><b>Adresa:</b> 11000 Rruga Ali Ajeti, Podujevë, Kosovë</p>
+
+<h3>Orari i Punës</h3>
+<p><b>E Hënë - E Premte:</b> 9:00 AM - 6:00 PM</p>
+<p><b>E Shtunë:</b> 10:00 AM - 4:00 PM</p>
+<p><b>E Dielë:</b> E Mbyllur</p>
+
+ <h2 align="center">Mund të përdorni formularin e kontaktit më poshtë për të na dërguar një mesazh drejtpërdrejt. Ne synojmë t'u përgjigjemi të gjitha kërkesave brenda 24 orësh.</h2>
+ 
+ <main>
+    <section class="contact-form-section">
+        <h2>Do të donim të dëgjonim nga ju!</h2>
+        <form action="mailto:support@mystore.com" method="post" enctype="text/plain">
+            <label for="name">Emri:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Mesazhi:</label>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+            
+            <input type="submit" value="Dërgo">
+        </form>
+    </section>
+</main>
+ <br>
+ <br>
+    <footer align="center",>
+        <p>&copy; 2024 MyStore</p>
+    </footer>
+</body>
+</html>

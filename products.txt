@@ -1,0 +1,102 @@
+            const products = [
+                { id: 1, name: 'Smartphone', price: '$299.99', img: 'https://m.media-amazon.com/images/I/61nzbNdA7hL.jpg', category: 'electronics', description: 'Latest model with high-end features.' },
+                { id: 2, name: 'Running Shoes', price: '$79.99', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw_j82oaCBExOOa2nVbKSzU6UubSgTqxBiUA&s', category: 'fashion', description: 'Comfortable and stylish running shoes.' },
+                { id: 3, name: 'Blender', price: '$49.99', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSejBDYNcLkONTMk0a--fmh6UeZqNFBDBYRNA&s', category: 'home', description: 'High-speed blender perfect for smoothies.' },
+                { id: 4, name: 'Lipstick', price: '$19.99', img: 'https://sdcdn.io/mac/au/mac_sku_S4K065_1x1_0.png?width=1440&height=1440', category: 'beauty', description: 'Long-lasting matte lipstick in various shades.' },
+                { id: 5, name: 'Football', price: '$25.99', img: 'https://m.media-amazon.com/images/I/51utCE+BxjL._AC_UF894,1000_QL80_.jpg', category: 'sports', description: 'Durable football suitable for all weather conditions.' },
+                { id: 6, name: 'Laptop', price: '$899.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2023/11/laptops-2048px-8826.jpg?auto=webp&quality=75&crop=1.91:1&width=1200', category: 'electronics', description: 'High-performance laptop for all your needs.' },
+                { id: 7, name: 'Jacket', price: '$129.99', img: 'https://m.media-amazon.com/images/I/71E7c09iTdL._AC_UY1000_.jpg', category: 'fashion', description: 'Warm and stylish jacket for winter.' },
+                { id: 8, name: 'Vacuum Cleaner', price: '$149.99', img: 'https://m.media-amazon.com/images/I/51rPtxq-FTL.__AC_SX300_SY300_QL70_FMwebp_.jpg', category: 'home', description: 'Powerful vacuum cleaner with multiple attachments.' },
+                { id: 9, name: 'Face Cream', price: '$29.99', img: 'https://himalayawellness.in/cdn/shop/files/Natural-Glow-Facecream-50g-Tube-front.jpg?v=1697448517', category: 'beauty', description: 'Moisturizing face cream for all skin types.' },
+                { id: 10, name: 'Tennis Racket', price: '$89.99', img: 'https://dw4gwhhv7uqc1.cloudfront.net/catalog%2FSeller_36472%2F65b93f8388b5d.jpg', category: 'sports', description: 'Lightweight and durable tennis racket.' },
+
+    { id: 11, name: 'Smartphone', price: '$299.99', img: 'https://m.media-amazon.com/images/I/61nzbNdA7hL.jpg', category: 'electronics', description: 'Latest model with high-end features.' },
+    { id: 12, name: 'Laptop', price: '$899.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2023/11/laptops-2048px-8826.jpg?auto=webp&quality=75&crop=1.91:1&width=1200', category: 'electronics', description: 'Powerful laptop for all your computing needs.' },
+    { id: 13, name: 'Headphones', price: '$99.99', img: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQTQ3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1687660671363', category: 'electronics', description: 'High-quality headphones for immersive audio experience.' },
+    { id: 14, name: 'Smartwatch', price: '$199.99', img: 'https://media.wired.com/photos/6511aab1189c419c40374c92/1:1/w_1358,h_1358,c_limit/Apple-Watch-Ultra-2-Alt-Gear.jpg', category: 'electronics', description: 'Stay connected with this stylish smartwatch.' },
+    { id: 15, name: 'Tablet', price: '$199.99', img: 'https://image-us.samsung.com/us/tablets/galaxy-tab-s9/products/tab-s9-ultra/gallery-images/graphite/1.jpg?$default-400-jpg$', category: 'electronics', description: 'Portable tablet for entertainment and productivity.' },
+    { id: 16, name: 'Digital Camera', price: '$399.99', img: 'https://m.media-amazon.com/images/I/71EUBYsDQEL._AC_UF894,1000_QL80_.jpg', category: 'electronics', description: 'Capture your memories with stunning clarity.' },
+    { id: 17, name: 'Wireless Speaker', price: '$79.99', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAbgRlsOlIQs4hPyRqUP31c38DNFJ4TaCY8w&s', category: 'electronics', description: 'Enjoy music wirelessly with this powerful speaker.' },
+    { id: 18, name: 'Gaming Console', price: '$499.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2023/12/choosingtherightps5-2048px-7311-3x2-1.jpg', category: 'electronics', description: 'Immerse yourself in gaming with the latest console.' },
+    { id: 19, name: 'Fitness Tracker', price: '$59.99', img: 'https://m.media-amazon.com/images/I/61dV494jBgL._AC_UF1000,1000_QL80_.jpg', category: 'electronics', description: 'Monitor your fitness goals with this tracker.' },
+    { id: 20, name: 'External Hard Drive', price: '$129.99', img: 'https://i.ebayimg.com/images/g/3lsAAOSwOzVkKn-0/s-l1200.webp', category: 'electronics', description: 'Expand your storage capacity with this hard drive.' },
+    
+    { id: 21, name: 'Wireless Mouse', price: '$29.99', img: 'https://m.media-amazon.com/images/I/51sm93PGdcL._AC_UF894,1000_QL80_.jpg', category: 'electronics', description: 'Ergonomic design for comfortable usage.' },
+    { id: 22, name: 'Bluetooth Earbuds', price: '$49.99', img: 'https://target.scene7.com/is/image/Target/GUEST_d76b4de5-9d04-477e-8c31-65f6fa698c91?wid=488&hei=488&fmt=pjpeg', category: 'electronics', description: 'True wireless earbuds with clear sound quality.' },
+    { id: 23, name: 'Smart Thermostat', price: '$149.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2022/11/smartthermostats-2048px-2898-3x2-1.jpg?auto=webp&quality=75&crop=3:2&width=1024', category: 'electronics', description: 'Control your home temperature from anywhere.' },
+    { id: 24, name: 'VR Headset', price: '$299.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2020/11/vr-headset-2048px-9008.jpg', category: 'electronics', description: 'Immersive virtual reality experience for gaming and entertainment.' },
+    { id: 25, name: 'Portable Charger', price: '$39.99', img: 'https://m.media-amazon.com/images/I/71f3vagRcYL.jpg', category: 'electronics', description: 'Charge your devices on the go with this portable charger.' },
+    { id: 26, name: 'Wireless Keyboard', price: '$49.99', img: 'https://m.media-amazon.com/images/I/71gR-IwIv-L.jpg', category: 'electronics', description: 'Convenient typing experience without wires.' },
+    { id: 27, name: 'Compact Camera', price: '$199.99', img: 'https://cdn.mos.cms.futurecdn.net/fhHCgdxamwSpjeqdz52EwN-1200-80.png', category: 'electronics', description: 'Capture memories with ease using this compact camera.' },
+    { id: 28, name: 'Smart Plug', price: '$19.99', img: 'https://m.media-amazon.com/images/I/41FJ6hLo09L._AC_UF894,1000_QL80_.jpg', category: 'electronics', description: 'Control your devices remotely with a smart plug.' },
+    { id: 29, name: 'Wireless Router', price: '$79.99', img: 'https://i.pcmag.com/imagery/reviews/04XmHNXc3c3GXXLimmqLsw4-1..v1609859128.png', category: 'electronics', description: 'High-speed internet connectivity for your home network.' },
+    { id: 30, name: 'Graphic Tablet', price: '$149.99', img: 'https://cdn.vox-cdn.com/thumbor/Oby21OQeLyjmrbIDn0Vx67IxGT4=/0x0:2000x1333/1400x1400/filters:focal(1000x667:1001x668)/cdn.vox-cdn.com/uploads/chorus_asset/file/24534316/PD24_Lifestyle_Photo.jpg', category: 'electronics', description: 'Create digital art with precision using this graphic tablet.' },
+
+    { id: 31, name: 'Bluetooth Keyboard', price: '$39.99', img: 'https://cdn.thewirecutter.com/wp-content/media/2023/12/bluetoothkeyboards-2048px-9845.jpg?auto=webp&quality=75&width=1024', category: 'electronics', description: 'Wireless keyboard for comfortable typing.' },
+    { id: 32, name: 'USB Flash Drive', price: '$19.99', img: 'https://m.media-amazon.com/images/I/51o2VzSkYJL._AC_UF894,1000_QL80_.jpg', category: 'electronics', description: 'Store and transfer files with this compact USB drive.' },
+    { id: 33, name: 'Wireless Earphones', price: '$69.99', img: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MYMC2?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1601053171000', category: 'electronics', description: 'Enjoy tangle-free music with these wireless earphones.' },
+    { id: 34, name: 'Portable Power Bank', price: '$49.99', img: 'https://m.media-amazon.com/images/I/51L3GFbMQHS._AC_UF894,1000_QL80_.jpg', category: 'electronics', description: 'Charge your devices on the move with this portable power bank.' },
+    { id: 35, name: 'Wi-Fi Range Extender', price: '$59.99', img: 'https://m.media-amazon.com/images/I/51v3yPrNc6L.jpg', category: 'electronics', description: 'Extend your Wi-Fi coverage for better connectivity.' },
+    { id: 36, name: 'Wireless Charging Mouse Pad', price: '$29.99', img: 'https://m.media-amazon.com/images/I/71u6rt2f4xL.jpg', category: 'electronics', description: 'Charge your phone while using your mouse with this pad.' },
+    { id: 37, name: 'Smart LED Bulb', price: '$19.99', img: 'https://m.media-amazon.com/images/I/61DD9OxpX8L._AC_UF894,1000_QL80_.jpg', category: 'electronics', description: 'Control your lighting remotely with a smart LED bulb.' },
+    { id: 38, name: 'External SSD', price: '$129.99', img: 'https://static.independent.co.uk/2023/03/06/12/external%20hard%20drives%20Indybest%20copy.jpg', category: 'electronics', description: 'Fast and reliable external storage for your data.' },
+    { id: 39, name: 'Wireless Ergonomic Mouse', price: '$39.99', img: 'https://m.media-amazon.com/images/I/61BST1dClmL.jpg', category: 'electronics', description: 'Ergonomically designed mouse for comfortable usage.' },
+    { id: 40, name: 'Bluetooth Game Controller', price: '$49.99', img: 'https://m.media-amazon.com/images/I/61FJ-33nCrL.jpg', category: 'electronics', description: 'Enhance your gaming experience with a wireless controller.' },
+    // Add more products here...
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1>THIS CODE INCLUDES SOME BUG FIXING!</h1>
+
+
+
+
+            function addToCart(event) {
+                const productId = event.target.getAttribute('data-product-id');
+                const product = products.find(product => product.id === productId);
+                const existingItem = cartItems.find(item => item.id === productId);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cartItems.push({ ...product, quantity: 1 });
+                }
+                updateCart();
+            }
+
+            function updateCart() {
+                cartItemsContainer.innerHTML = '';
+                let totalPrice = 0;
+                let totalItems = 0;
+                cartItems.forEach(item => {
+                    totalItems += item.quantity;
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `
+                        <div class="item-info">
+                            <p>${item.name}</p>
+                            <p>Quantity: ${item.quantity}</p>
+                        </div>
+                        <p class="item-price">$${(item.price * item.quantity).toFixed(2)}</p>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                    totalPrice += item.price * item.quantity;
+                });
+                totalPriceDisplay.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+                displayDeliveryTime(totalItems);
+            }
+
+            function displayDeliveryTime(totalItems) {
+                const deliveryTime = totalItems * 10;
+                deliveryTimeDisplay.textContent = `Estimated Delivery Time: ${deliveryTime} minutes`;
+            }

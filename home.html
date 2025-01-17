@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<title>Dyqani E-Commerce</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+<style>
+ header {
+
+background-color: rgb(105, 104, 104);
+color: rgb(255, 255, 255);
+text-align: center;
+padding: 5px;
+}
+
+header button {
+padding: 7px 5px;
+background-color: #5f5a5a; /* Background gri më e errët për butonin */
+color: white;
+font-size: 12px;
+
+}
+
+header button :hover {
+background-color: rgb(8, 8, 8);
+}
+
+header h1 {
+    color: black;
+}
+
+body {
+    color: white;
+    background-image: url('https://www.sleeplessmedia.com/wp-content/uploads/2010/09/extensive-ecommerce-banner.jpg');
+    background-size: 700x350px;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    padding: 20px;
+}
+
+body h2 {
+    color:black;   
+}
+
+</style>
+<header>
+<h1>Dyqani E-Commerce</h1>
+<nav>
+    <ul style="list-style: none; margin: 0; padding: 0;">
+            <button onclick="Home()">
+            <li style="display: inline; margin-right: 20px;">
+            <a href="#Home" style="text-decoration: none; color: white;">Kryefaqja</a>
+            </button>
+            
+            <button onclick="About()">
+            <li style="display: inline; margin-right: 20px;">
+            <a href="#About" style="text-decoration: none; color: white;">Rreth Nesh</a>
+           </button>
+
+            <button onclick="Order()">
+            <li style="display: inline; margin-right: 20px;">
+                <a href="#Order" style="text-decoration: none; color: white;">Porosit Tani!</a>
+            </button>
+            
+            <button onclick="Contact()">
+            <li style="display: inline; margin-right: 20px;">
+            <a href="#Contact" style="text-decoration: none; color: white;">Kontakt</a>
+            </button> 
+        </ul>
+</nav>
+</header>
+</head>
+
+<body>
+<section id="#Home">
+<h2>Mirësevini në Dyqanin Tonë</h2>
+<p>Ne ofrojmë produkte dhe shërbime të shkëlqyera</p>
+<p>Kjo është një dyqan ku mund të porosisni shumë produkte, duke filluar nga gjërat e vogla deri tek ato më të mëdha</p>
+<p>Ne sigurohemi që dërgesa e produkteve të arrijë me cilësi të shkëlqyer dhe sa më shpejt të jetë e mundur</p>
+</section>
+
+  <section class="testimonials">
+    <h2>Çfarë Thonë Klientët Tanë</h2>
+    <div class="testimonial-item">
+        <p>"Produkte të shkëlqyera dhe shërbim fantastik!"</p>
+        <p>- Klienti 1</p>
+    </div>
+  </div>
+    <div class="testimonial-item">
+        <p>"Oferta fantastike dhe dërgesa e shpejtë."</p>
+        <p>- Klienti 2</p>
+    </div>
+</section>
+<section class="newsletter">
+    <h2>Qëndroni të Informuar</h2>
+    <form>
+        <input type="email" placeholder="Futni emailin tuaj">
+        <button type="submit">Abonohuni</button>
+    </form>
+</section>
+</main>
+<br>
+<footer>
+<div class="footer-container">
+    <div class="footer-links">
+        <a href="#">Politika e Privatësisë</a>
+        <a href="#">Kushtet e Shërbimit</a>
+        <a href="#">Pyetje të Shpeshta</a>
+    </div>
+</div>
+</footer>
+</body>
+</html>
